@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     async function getCounterValue() {
         try {
-            const response = await fetch('https://api.github.com/gists/counter', {
+            const response = await fetch('https://api.github.com/gists/34b0932be525fa9e28bd897748fcd26c', {
                 headers: {
                     'Authorization': 'Bearer ' + process.env.GH_PERSONAL_ACCESS_TOKEN,
                 },
             });
-            // ... Rest of the code
+            const data = await response.json();
+            return data.files['counter.txt'] ? parseInt(data.files['counter.txt'].content) : 0;
         } catch (error) {
             console.error('Error getting counter value:', error);
             return 0;
@@ -26,13 +27,19 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     async function updateCounterValue(newValue) {
         try {
-            const response = await fetch(`https://api.github.com/gists/counter`, {
+            const response = await fetch(`https://api.github.com/gists/34b0932be525fa9e28bd897748fcd26c`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': 'Bearer ' + process.env.GH_PERSONAL_ACCESS_TOKEN,
                     'Content-Type': 'application/json'
                 },
-                // ... Rest of the code
+                body: JSON.stringify({
+                    files: {
+                        'counter.txt': {
+                            content: newValue.toString()
+                        }
+                    }
+                })
             });
 
             if (!response.ok) {
