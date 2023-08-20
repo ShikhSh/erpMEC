@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 },
             });
             const data = await response.json();
-            return data.files['counter.txt'] ? parseInt(data.files['counter.txt'].content) : 0;
+            return data.files['counter.txt'] ? parseInt(data.files['counter.txt'].content) : 250;
         } catch (error) {
             console.error('Error getting counter value:', error);
             return 0;
