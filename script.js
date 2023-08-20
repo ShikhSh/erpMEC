@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             return data.files['counter.txt'] ? parseInt(data.files['counter.txt'].content) : 250;
         } catch (error) {
             console.error('Error getting counter value:', error);
-            return 0;
+            return 123;
         }
     }
 
