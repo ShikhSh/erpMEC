@@ -1,2 +1,2 @@
 # erpMEC
-http(s)://ShikhSh.github.io/erpMEC
+https://shikhsh.github.io/erpMEC/
