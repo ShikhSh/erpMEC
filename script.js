@@ -1,28 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const counterElement = document.getElementById('counter');
     const incrementButton = document.getElementById('incrementButton');
-
-    let counter = 0;
+    
+    let counter = await getCounterValue(); // Load initial value from Gist
 
     incrementButton.addEventListener('click', async function() {
         counter++;
         counterElement.textContent = counter;
-        
-        // Update the counter value using an API call
+        await updateCounterValue(counter); // Update value in Gist
+    });
+
+    async function getCounterValue() {
         try {
-            const response = await fetch('https://api.example.com/update-counter', {
-                method: 'POST',
+            const response = await fetch('https://api.github.com/gists/counter', {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + process.env.GH_PERSONAL_ACCESS_TOKEN,
                 },
-                body: JSON.stringify({ counter }),
+            });
+            // ... Rest of the code
+        } catch (error) {
+            console.error('Error getting counter value:', error);
+            return 0;
+        }
+    }
+
+    async function updateCounterValue(newValue) {
+        try {
+            const response = await fetch(`https://api.github.com/gists/counter`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': 'Bearer ' + process.env.GH_PERSONAL_ACCESS_TOKEN,
+                    'Content-Type': 'application/json'
+                },
+                // ... Rest of the code
             });
 
             if (!response.ok) {
-                console.error('Failed to update counter on the server.');
+                console.error('Error updating counter value.');
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error updating counter value:', error);
         }
-    });
+    }
 });
