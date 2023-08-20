@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     let counter = await getCounterValue(); // Load initial value from Gist
 
     incrementButton.addEventListener('click', async function() {
-        counter++;
+        // counter++;
         counterElement.textContent = counter;
         await updateCounterValue(counter); // Update value in Gist
     });
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             return data.files['counter.txt'] ? parseInt(data.files['counter.txt'].content) : 250;
         } catch (error) {
             console.error('Error getting counter value:', error);
-            return 123;
+            return error;
         }
     }
 
