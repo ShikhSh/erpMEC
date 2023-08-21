@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Font1|Font2&display=swap" />
+    <title>erpMEC</title>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <style>
+        body {
+        font-family: 'Montserrat', sans-serif;
+            text-align: center;
+    }
+        .centered-content {
+            margin: 0 auto;
+        }
+        .math-font {
+        font-family: "Cambria Math", Times, serif;
+    }
+        img {
+            width: 50vw; /* Set the desired width */
+            height: auto; /* Maintain aspect ratio */
+        }
+         /* Media query for smaller screens (mobile view) */
+        @media (max-width: 768px) {
+            img {
+                width: 100%; /* Full width on mobile */
+            }
+        
+    </style>
+    
+    <script>
+        // Function to generate a random number from the provided list
+        function getRandomNumber() {
+            return Math.random();
+            
+        }
+
+        // Function to get a random element from an array
+        function getRandomElement(array) {
+            var randomIndex = Math.floor(Math.random() * array.length);
+            return array[randomIndex];
+        }
+
+        // Function to update the content of the webpage
+        function updateContent() {
+            var randomAppls = ['IoT Sensing Analytics', 'Distributed AI', 'Predictive Maintence', 'Remote Monitoring', 'Industrial IoT', 'Augmented Reality Display'];
+            var randomAppl = getRandomElement(randomAppls);
+
+            var randomApplElement = document.getElementById("random-appl");
+            randomApplElement.textContent = randomAppl;
+            
+            var randomNumber = getRandomNumber();
+            var randomNumber2 = getRandomNumber();
+    
+            var randomNumberContainer = document.getElementById("random-number");
+            randomNumberContainer.textContent = randomNumber.toFixed(3); // Displaying with 3 decimal places
+
+            var randomNumberContainer2 = document.getElementById("random-number-2");
+            randomNumberContainer2.textContent = randomNumber2.toFixed(3); // Displaying with 3 decimal places
+
+            var pr = 0.1
+            var delta=0.3
+
+            var prElement = document.getElementById("p-r");
+            prElement.textContent = pr;
+
+            var deltaElement = document.getElementById("delta");
+            deltaElement.textContent =delta;
+
+            var yesButton = document.getElementById("yes-button");
+            var noButton = document.getElementById("no-button");
+            var thankYouMessage = document.getElementById("thank-you-message");
+
+            yesButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Thank you for your choice!";
+            });
+
+            noButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Thank you for your choice!";
+            });
+        }
+    </script>
+    
+</head>
+<body onload="updateContent()">
+    <div class="centered-content">
+        <img src="prototypeLogo.png" >
+        <h1>Welcome to the Re-sellers portal </h1>
+    
+        <p> The application you are using is <em><span id="random-appl"></span></em> </p>
+        
+        <p>After factoring in your usage level, your remaining usage quota for this time-slot is </p>
+    
+        <p id="random-number"></p>
+    
+        <p>Your inconvenience cost of selling, \(g_i\), inclusive of the uncertainty of further usage this time-slot is </p>
+        <p id="random-number-2"></p>
+    
+        <p> The price at which you will re-sell resource units, and the platform commission is: </p>
+        
+        <table border="1">
+            <tr>
+                <th>Price obtained when re-selling </th>
+                <th>Platform Commission</th>
+            </tr>
+            <tr>
+                <td>\(p_r = \) <span id="p-r"></span></td>
+                <td>\(\delta = \) <span id="delta"></span></td>
+            </tr>
+                
+        </table>
+    
+        <p> If you choose to re-sell, your payoff \(= (1-\delta)p_r - g_i \).</p>
+    
+        <p> If you choose not to re-sell, your payoff \(= 0\).</p>
+    
+    
+        <p>Do you want to re-sell your excess compute resource quota units?</p>
+        <button id="yes-button">Yes</button>
+        <button id="no-button">No</button>
+        <p id="thank-you-message"></p>
+    </div>
+</body>
+</html> 

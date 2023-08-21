@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Font1|Font2&display=swap" />
+    <title>erpMEC</title>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <style>
+        body {
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+    }
+        
+        
+        .centered-content {
+            margin: 0 auto;
+        }
+        .math-font {
+        font-family: "Cambria Math", Times, serif;
+    }
+        img {
+            width: 50vw; /* Set the desired width */
+            height: auto; /* Maintain aspect ratio */
+        }
+         /* Media query for smaller screens (mobile view) */
+        @media (max-width: 768px) {
+            img {
+                width: 100%; /* Full width on mobile */
+            }   
+        }
+        
+    </style>
+    
+    <script>
+        // Function to generate a random number from the provided list
+        function getRandomNumber() {
+            return Math.random();  
+        }
+
+        function getRandomElement(list) {
+            var randomIndex = Math.floor(Math.random() * list.length);
+            return list[randomIndex];
+        }
+
+        
+
+        // Function to update the content of the webpage
+        function updateContent() {
+            
+
+            var randomNumber1 = getRandomNumber();
+            var randomNumber2 = getRandomNumber();
+
+            var randomNumberContainer1 = document.getElementById("random-number-1");
+            randomNumberContainer1.textContent = randomNumber1.toFixed(3); // Displaying with 2 decimal places
+
+            var randomNumberContainer2 = document.getElementById("random-number-2");
+            randomNumberContainer2.textContent = randomNumber2.toFixed(3); // Displaying with 2 decimal places
+
+            var qo= 0.6
+            var qs= 0.6
+            var po= 0.1
+            var pr = 0.1
+
+            var qoElement = document.getElementById("q-o");
+            qoElement.textContent = qo;
+
+            var qsElement = document.getElementById("q-s");
+            qsElement.textContent = qs;
+
+            var poElement = document.getElementById("p-o");
+            poElement.textContent = po;
+
+            var prElement = document.getElementById("p-r");
+            prElement.textContent = pr;
+
+            var randomAppls = ['IoT Sensing Analytics', 'Mobile Gaming', 'Augmented Reality', 'Data Analytics on Device', 'Smart Home IoT Analytics'];
+            var randomAppl = getRandomElement(randomAppls);
+
+            var randomApplElement = document.getElementById("random-appl");
+            randomApplElement.textContent = randomAppl;
+
+            
+            var thankYouMessage = document.getElementById("thank-you-message");
+            var optionAButton = document.getElementById("option-a");
+            var optionBButton = document.getElementById("option-b");
+            var optionCButton = document.getElementById("option-c");
+
+           
+
+            optionAButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Thank you for your choice!";
+            });
+
+            optionBButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Thank you for your choice!";
+            });
+
+            optionCButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Thank you for your choice!";
+            });
+        }
+    </script>
+
+    
+</head>
+<body onload="updateContent()">
+    <div class="centered-content">
+        <img src="prototypeLogo.png" >
+        <h1>Welcome to erp-MEC: Buyers page</h1>
+        <p> The application you are using is <em><span id="random-appl"></span></em> </p>
+        
+        <p>Your application's required usage level this time-slot, \(d_i\) is </p>
+        <p id="random-number-1"></p>
+    
+        <p>Your utility obtained, and hence willingness to pay, \(u_i\) is </p>
+        <p id="random-number-2"></p>
+    
+        <p> The current prices and supply levels are as follows: </p>
+    
+       
+        <table border="1">
+            
+            <tr>
+                <th>   </th>
+                <th>On-Demand Pool</th>
+                <th>Sharing Pool (Re-sold Units)</th>
+            </tr>
+            <tr>
+                <td>Supply level </td>
+                <td>\(q_o = \) <span id="q-o"></span></td>
+                <td>\(q_s = \) <span id="q-s"></span></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>\(p_o = \) <span id="p-o"></span></td>
+                <td>\(p_r = \) <span id="p-r"></span></td>
+            </tr>        
+        </table>
+        
+        <p> If you choose the On-Demand Pool, your payoff \(= u_i q_o - p_o \).</p>
+    
+        <p> If you choose the On-Demand Pool, your payoff \(= u_i q_s - p_r \).</p>
+    
+        <p> If you choose the On-Demand Pool, your payoff \(= 0\).</p>
+    
+        <p>How would you like to buy compute resource quota units?</p>
+        
+    
+        <button id="option-a">On-Demand Pool</button>
+        <button id="option-b">Sharing Pool (from re-sellers)</button>
+        <button id="option-c">No purchase</button>
+    
+        <p id="thank-you-message"></p>
+    </div>
+</body>
+</html>
