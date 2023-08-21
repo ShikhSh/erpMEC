@@ -21,4 +21,5 @@ jobs:
       - name: Use Secret in JS Code
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }} # Set the secret as an environment variable
-
+        run: |
+          echo "Should be able to access secret in JavaScript code..."
