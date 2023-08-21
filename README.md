@@ -1,3 +1,5 @@
-# msiew001.github.io
+# erp MEC
 
-A website for th ERP project.
+https://shikhsh.github.io/erpMEC/
+
+A website for the ERP project.
