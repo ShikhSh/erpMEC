@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             // if (!response.ok) {
             //     console.error('Error updating counter value.');
             // }
-            const response = await fetch(`http://128.2.66.182:8080/store`, {
+            const response = await fetch(`https://128.2.66.182:8080/store`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'text/plain'
