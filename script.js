@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             //     console.error('Error updating counter value.');
             // }
             const response = await fetch(`https://2b1tp0z2gi.execute-api.us-east-2.amazonaws.com/`, {
+                mode: "no-cors",
                 method: 'POST',
                 headers: {
                     'Content-Type': 'text/plain'
