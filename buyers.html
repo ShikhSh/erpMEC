@@ -88,19 +88,46 @@
             var optionBButton = document.getElementById("option-b");
             var optionCButton = document.getElementById("option-c");
 
-           
+            var toStore = 'b,' + randomNumberContainer1.textContent + ',' + randomNumberContainer2.textContent + ','  + qoElement.textContent + ','  + qsElement.textContent + ','  + poElement.textContent + ',' + prElement.textContent + ',';
 
             optionAButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Submitting your request, please wait!";
+                toStore = toStore + "On-Demand Pool"
+                console.log('Option A listener called');
+                await updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
 
             optionBButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Submitting your request, please wait!";
+                toStore = toStore + "Sharing Pool (from re-sellers)"
+                console.log('Option B listener called');
+                await updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
 
             optionCButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Submitting your request, please wait!";
+                toStore = toStore + "No purchase"
+                console.log('Option C listener called');
+                await updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
+        }
+        async function updateCounterValue(body_text) {
+            console.log('Updating counter value');
+            try {
+                const response = await fetch(`https://2b1tp0z2gi.execute-api.us-east-2.amazonaws.com/`, {
+                    mode: "no-cors",
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: body_text
+                });
+            } catch (error) {
+                console.error('Error updating counter value:', error);
+            }
         }
     </script>
 
