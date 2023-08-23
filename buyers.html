@@ -94,7 +94,7 @@
                 thankYouMessage.textContent = "Submitting your request, please wait!";
                 toStore = toStore + "On-Demand Pool"
                 console.log('Option A listener called');
-                await updateCounterValue(toStore); // Update value in Gist
+                updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
 
@@ -102,7 +102,7 @@
                 thankYouMessage.textContent = "Submitting your request, please wait!";
                 toStore = toStore + "Sharing Pool (from re-sellers)"
                 console.log('Option B listener called');
-                await updateCounterValue(toStore); // Update value in Gist
+                updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
 
@@ -110,7 +110,7 @@
                 thankYouMessage.textContent = "Submitting your request, please wait!";
                 toStore = toStore + "No purchase"
                 console.log('Option C listener called');
-                await updateCounterValue(toStore); // Update value in Gist
+                updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
         }
