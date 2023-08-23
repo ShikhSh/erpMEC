@@ -88,11 +88,11 @@
             var optionBButton = document.getElementById("option-b");
             var optionCButton = document.getElementById("option-c");
 
-            var toStore = 'b,' + randomNumberContainer1.textContent + ',' + randomNumberContainer2.textContent + ','  + qoElement.textContent + ','  + qsElement.textContent + ','  + poElement.textContent + ',' + prElement.textContent + ',';
+            var toStore = 'b,' + randomNumberContainer1.textContent + ',' + randomNumberContainer2.textContent + ','  + qoElement.textContent + ','  + qsElement.textContent + ','  + poElement.textContent + ',' + prElement.textContent;
 
             optionAButton.addEventListener("click", function() {
                 thankYouMessage.textContent = "Submitting your request, please wait!";
-                toStore = toStore + "On-Demand Pool"
+                toStore = toStore + ",On-Demand Pool"
                 console.log('Option A listener called');
                 updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
@@ -100,7 +100,7 @@
 
             optionBButton.addEventListener("click", function() {
                 thankYouMessage.textContent = "Submitting your request, please wait!";
-                toStore = toStore + "Sharing Pool (from re-sellers)"
+                toStore = toStore + ",Sharing Pool (from re-sellers)"
                 console.log('Option B listener called');
                 updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
@@ -108,7 +108,7 @@
 
             optionCButton.addEventListener("click", function() {
                 thankYouMessage.textContent = "Submitting your request, please wait!";
-                toStore = toStore + "No purchase"
+                toStore = toStore + ",No purchase"
                 console.log('Option C listener called');
                 updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
