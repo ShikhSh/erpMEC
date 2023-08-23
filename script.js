@@ -1,21 +1,21 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    const buyerCounterElement = document.getElementById('buyercounter');
+    // const buyerCounterElement = document.getElementById('buyercounter');
     const buyerIncrementButton = document.getElementById('buyerButton');
 
-    const resellerCounterElement = document.getElementById('resellercounter');
+    // const resellerCounterElement = document.getElementById('resellercounter');
     const resellerIncrementButton = document.getElementById('resellerButton');
     
-    let buyerCounter = 0;//await getCounterValue('buyerCnt.txt'); // Load initial value from Gist
-    let resellerCounter = 0;//await getCounterValue('resellerCnt.txt'); // Load initial value from Gist
+    // let buyerCounter = 0;//await getCounterValue('buyerCnt.txt'); // Load initial value from Gist
+    // let resellerCounter = 0;//await getCounterValue('resellerCnt.txt'); // Load initial value from Gist
 
     console.log('Adding listeners to buttons');
     if (buyerIncrementButton) {
         buyerIncrementButton.addEventListener('click', async function(event) {
             event.preventDefault(); // Prevent default form submission
             console.log('Buyer listener called');
-            buyerCounter++;
-            buyerCounterElement.textContent = buyerCounter;
-            await updateCounterValue('b', buyerCounter); // Update value in Gist
+            // buyerCounter++;
+            // buyerCounterElement.textContent = buyerCounter;
+            // await updateCounterValue('b', buyerCounter); // Update value in Gist
             window.location.href = 'buyers.html';
         });
     } else {
@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         resellerIncrementButton.addEventListener('click', async function(event) {
             event.preventDefault(); // Prevent default form submission
             console.log('Reseller listener called');
-            resellerCounter++;
-            resellerCounterElement.textContent = resellerCounter;
-            await updateCounterValue('r', resellerCounter); // Update value in Gist
+            // resellerCounter++;
+            // resellerCounterElement.textContent = resellerCounter;
+            // await updateCounterValue('r', resellerCounter); // Update value in Gist
             window.location.href = 're-sellers.html';
         });
     } else {
@@ -58,40 +58,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     async function updateCounterValue(b_or_r, newValue) {
         console.log('Updating counter value');
         try {
-            // if (b_or_s == 'b') {
-            //     const response = await fetch(`https://api.github.com/gists/34b0932be525fa9e28bd897748fcd26c`, {
-            //         method: 'PATCH',
-            //         headers: {
-            //             'Authorization': 'Bearer ' + process.env.GH_PERSONAL_ACCESS_TOKEN,
-            //             'Content-Type': 'application/json'
-            //         },
-            //         body: JSON.stringify({
-            //             files: {
-            //                 'buyerCnt.txt': {
-            //                     content: newValue.toString()
-            //                 }
-            //             }
-            //         })
-            //     });
-            // } else {
-            //     const response = await fetch(`https://api.github.com/gists/34b0932be525fa9e28bd897748fcd26c`, {
-            //         method: 'PATCH',
-            //         headers: {
-            //             'Authorization': 'Bearer ' + process.env.GH_PERSONAL_ACCESS_TOKEN,
-            //             'Content-Type': 'application/json'
-            //         },
-            //         body: JSON.stringify({
-            //             files: {
-            //                 'resellerCnt.txt': {
-            //                     content: newValue.toString()
-            //                 }
-            //             }
-            //         })
-            //     });
-            // }
-            // if (!response.ok) {
-            //     console.error('Error updating counter value.');
-            // }
             const response = await fetch(`https://2b1tp0z2gi.execute-api.us-east-2.amazonaws.com/`, {
                 mode: "no-cors",
                 method: 'POST',
