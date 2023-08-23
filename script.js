@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             console.log('Buyer listener called');
             buyerCounter++;
             buyerCounterElement.textContent = buyerCounter;
-            await updateCounterValue('bb', buyerCounter); // Update value in Gist
-            // window.location.href = 'buyers.html';
+            await updateCounterValue('b', buyerCounter); // Update value in Gist
+            window.location.href = 'buyers.html';
         });
     } else {
         console.error('No Buyer Button!!');
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             console.log('Reseller listener called');
             resellerCounter++;
             resellerCounterElement.textContent = resellerCounter;
-            await updateCounterValue('rr', resellerCounter); // Update value in Gist
-            // window.location.href = 're-sellers.html';
+            await updateCounterValue('r', resellerCounter); // Update value in Gist
+            window.location.href = 're-sellers.html';
         });
     } else {
         console.error('No Reseller Button!!');
