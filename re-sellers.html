@@ -73,13 +73,37 @@
             var noButton = document.getElementById("no-button");
             var thankYouMessage = document.getElementById("thank-you-message");
 
+            var toStore = 'r,' + randomNumberContainer.textContent + ',' + randomNumberContainer2.textContent + ',' + prElement.textContent + ',' + deltaElement.textContent + ',' + randomApplElement.textContent;
             yesButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Submitting your request, please wait!";
+                toStore = toStore + ",Y"
+                console.log('Yes listener called');
+                await updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
 
             noButton.addEventListener("click", function() {
+                thankYouMessage.textContent = "Submitting your request, please wait!";
+                toStore = toStore + ",N"
+                console.log('No listener called');
+                await updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
+        }
+        async function updateCounterValue(body_text) {
+            console.log('Updating counter value');
+            try {
+                const response = await fetch(`https://2b1tp0z2gi.execute-api.us-east-2.amazonaws.com/`, {
+                    mode: "no-cors",
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: body_text
+                });
+            } catch (error) {
+                console.error('Error updating counter value:', error);
+            }
         }
     </script>
     
