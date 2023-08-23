@@ -78,7 +78,7 @@
                 thankYouMessage.textContent = "Submitting your request, please wait!";
                 toStore = toStore + ",Y"
                 console.log('Yes listener called');
-                await updateCounterValue(toStore); // Update value in Gist
+                updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
 
@@ -86,7 +86,7 @@
                 thankYouMessage.textContent = "Submitting your request, please wait!";
                 toStore = toStore + ",N"
                 console.log('No listener called');
-                await updateCounterValue(toStore); // Update value in Gist
+                updateCounterValue(toStore); // Update value in Gist
                 thankYouMessage.textContent = "Thank you for your choice!";
             });
         }
