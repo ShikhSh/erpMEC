@@ -63,6 +63,12 @@
             var pr = 0.15
             var delta=0.3
 
+            var pi_reSell= (1-delta)*pr - randomNumber2
+
+            var pi_reSellElement = document.getElementById("payoff-resell");
+            pi_reSellElement.textContent =  pi_reSell.toFixed(3);
+    
+
             var prElement = document.getElementById("p-r");
             prElement.textContent = pr;
 
@@ -136,7 +142,7 @@
                 
         </table>
     
-        <p> If you choose to re-sell, your payoff \(= (1-\delta)p_r - g_i \).</p>
+        <p> If you choose to re-sell, your payoff \(= (1-\delta)p_r - g_i  = \)  <span id="payoff-resell"></span></p>
     
         <p> If you choose not to re-sell, your payoff \(= 0\).</p>
     
