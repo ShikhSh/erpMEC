@@ -64,6 +64,15 @@
             var po= 0.15
             var pr = 0.2
 
+            var pi_OD= randomNumber2*qo-po
+            var pi_RS= randomNumber2*qs-pr
+
+            var pi_ODElement = document.getElementById("payoff-od");
+            pi_ODElement.textContent =  pi_OD.toFixed(3);
+
+            var pi_RSElement = document.getElementById("payoff-rs");
+            pi_RSElement.textContent =  pi_RS.toFixed(3);
+
             var qoElement = document.getElementById("q-o");
             qoElement.textContent = qo;
 
@@ -166,10 +175,11 @@
                 <td>\(p_r = \) <span id="p-r"></span></td>
             </tr>        
         </table>
+        <p> Below, we present one method of calculating user payoffs (reward function). </p>
         
-        <p> If you choose the On-Demand Pool, your payoff \(= u_i q_o - p_o \).</p>
+        <p> If you choose the On-Demand Pool, your payoff \(= u_i q_o - p_o  = \).  <span id="payoff-od"></span></p>
     
-        <p> If you choose the Sharing Pool, your payoff \(= u_i q_s - p_r \).</p>
+        <p> If you choose the Sharing Pool, your payoff \(= u_i q_s - p_r  = \).  <span id="payoff-rs"></span></p>
     
         <p> If you choose neither pool, your payoff \(= 0\).</p>
     
